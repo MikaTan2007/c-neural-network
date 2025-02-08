@@ -6,25 +6,21 @@
 #define SICK_PREDICTION_IDX 1
 #define ACTIVE_PREDICTION_IDX 2
 
-#define NUM_OF_HIDDEN 3
-#define NUM_OF_OUTPUTS 3
-#define NUM_OF_INPUTS 3
+#define IN_LEN 3
+#define OUT_LEN 3
 
 double predicted_results[3];
-double hidden_predicted[3];
-
-input_to_hidden_weights[NUM_OF_INPUTS][NUM_OF_HIDDEN] = {
-    //  temp humidity airqual
-    {0.2, 0.1, 0.5},  // hid[0]
-    {0.3, 0.5, 0.6},  // hid[1]
-    {0.0, 0.8, 0.7}}; // hid[2]
-
-hidden_to_output_weights[NUM_OF_HIDDEN][NUM_OF_OUTPUTS] = {
-    // hid[0] hid[1] hid[2]
-    {0.4, 0.2, 0.3},  // sad
-    {0.5, 0.2, 0.1},  // sick
-    {0.2, 0.4, 0.8}}; // active
+// temp hum airqual
+double weights[OUT_LEN][IN_LEN] = {{-2, 9.5, 2.01},    // sad
+                                   {-0.8, 7.2, 6.3},   // sick
+                                   {-0.5, 0.45, 0.9}}; // active
+                                                       // temp hum airqual
+double inputs[IN_LEN] = {30, 87, 110};
 
 int main()
 {
+    multiple_input_multiple_output_nn(inputs, IN_LEN, predicted_results, OUT_LEN, weights);
+    printf("Sad Prediction: %f\r\n", predicted_results[SAD_PREDICTION_IDX]);
+    printf("Sick Prediction: %f\r\n", predicted_results[SICK_PREDICTION_IDX]);
+    printf("Active Prediction: %f\r\n", predicted_results[ACTIVE_PREDICTION_IDX]);
 }

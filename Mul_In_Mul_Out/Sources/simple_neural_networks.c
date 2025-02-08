@@ -15,11 +15,11 @@ void matrix_vector_multiply(double *input_vector,
     }
 }
 
-void hidden_layer_nn(double *input_vector,
-                     int INPUT_LEN,
-                     double *output_vector,
-                     int OUTPUT_LEN,
-                     double weight_matrix[OUTPUT_LEN][INPUT_LEN])
+void multiple_input_multiple_output_nn(double *input_vector,
+                                       int INPUT_LEN,
+                                       double *output_vector,
+                                       int OUTPUT_LEN,
+                                       double weight_matrix[OUTPUT_LEN][INPUT_LEN])
 {
-    matrix_vector_multiply()
+    matrix_vector_multiply(input_vector, INPUT_LEN, output_vector, OUTPUT_LEN, weight_matrix);
 }

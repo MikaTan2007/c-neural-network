@@ -1,5 +1,6 @@
 {
     "files.associations": {
         "1_SimpleNN.C": "cpp"
-    }
+    },
+    "C_Cpp.errorSquiggles": "disabled"
 }
