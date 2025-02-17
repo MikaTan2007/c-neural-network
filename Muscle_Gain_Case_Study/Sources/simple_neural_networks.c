@@ -71,3 +71,24 @@ void brute_force_learning(double input,
         }
     }
 }
+
+void normalize_data(double *input_vector, double *output_vector, int LEN)
+{
+    int i;
+    /*Find Max*/
+    double max = input_vector[0];
+
+    for (i = 1; i < LEN; i++)
+    {
+        if (input_vector[i] > max)
+        {
+            max = input_vector[i];
+        }
+    }
+
+    /*Normalization*/
+    for (i = 0; i < LEN; i++)
+    {
+        output_vector[i] = input_vector[i] / max;
+    }
+}

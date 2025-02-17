@@ -1,6 +1,6 @@
 #ifndef _SIMPLE_NEURAL_NETWORKS_H_
 #define _SIMPLE_NEURAL_NETWORKS_H_
-
+#include <stdio.h>
 #define NUM_OF_HIDDEN 3
 double hidden_predicted_vector[NUM_OF_HIDDEN];
 void hidden_layer_nn(double *input_vector,
@@ -19,4 +19,7 @@ void brute_force_learning(double input,
                           double expected_value,
                           double step_amount,
                           int itr);
+
+void normalize_data(double *input_vector, double *output_vector, int LEN);
+
 #endif // _SIMPLE_NEURAL_NETWORKS_H_
