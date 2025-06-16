@@ -1,0 +1,2 @@
+#In Sources
+gcc -o main main.c simple_neural_networks.c -I ../Headers
